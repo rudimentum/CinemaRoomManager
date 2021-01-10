@@ -79,11 +79,9 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/projects/133/stages/709/implement
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    Expected 9 lines in the output!
-  time: Sat, 09 Jan 2021 15:09:30 UTC
-record: -1
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/133/stages/709/implement">JetBrains
+    Academy</a>
+  time: Sat, 09 Jan 2021 17:44:56 UTC
+record: 1

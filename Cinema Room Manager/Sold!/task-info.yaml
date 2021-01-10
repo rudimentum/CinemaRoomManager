@@ -128,13 +128,9 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/projects/133/stages/710/implement
-status: Failed
+status: Solved
 feedback:
-  message: "Wrong answer in test #1\n\nAt the beginning your program should ask for\
-    \ entering the number of rows.\nYour output should contain &#39;Enter the number\
-    \ of rows:&#39;\n\nPlease find below the output of your program during this failed\
-    \ test.\n\n---\n\nCinema:\n  1 2 3 4 5 6 7 8 \n1 S S S S S S S S \n2 S S S S S\
-    \ S S S \n3 S S S S S S S S \n4 S S S S S S S S \n5 S S S S S S S S \n6 S S S\
-    \ S S S S S \n7 S S S S S S S S"
-  time: Sun, 10 Jan 2021 14:24:29 UTC
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/133/stages/710/implement">JetBrains
+    Academy</a>
+  time: Sun, 10 Jan 2021 14:40:44 UTC
 record: -1

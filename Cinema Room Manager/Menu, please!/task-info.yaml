@@ -336,10 +336,13 @@ files:
         }
     }
   learner_created: false
+- name: src/cinema/Room.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/133/stages/712/implement
 status: Solved
 feedback:
   message: Congratulations! Continue on <a href="https://hyperskill.org/projects/133/stages/712/implement">JetBrains
     Academy</a>
-  time: Tue, 12 Jan 2021 22:27:49 UTC
-record: -1
+  time: Fri, 15 Jan 2021 00:31:52 UTC
+record: 4

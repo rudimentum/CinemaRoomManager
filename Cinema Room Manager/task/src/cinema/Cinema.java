@@ -76,10 +76,14 @@ public class Cinema {
         int row = scanner.nextInt();
         System.out.println("Enter a seat number in that row: ");
         int seat = scanner.nextInt();
-        room[row][seat] = "B ";
         int rows = room.length - 1;
         int seats = room[rows].length - 1;
-        System.out.println("Ticket price: $" + calculateTicketPrice(rows, seats, row));
+        if (room[row][seat].equals("B ")) {
+            System.out.println("This seat is occupied! Choose another one!");
+        } else {
+            room[row][seat] = "B ";
+            System.out.println("Ticket price: $" + calculateTicketPrice(rows, seats, row));
+        }
         return room;
     }
 

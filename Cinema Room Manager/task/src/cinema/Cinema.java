@@ -7,7 +7,8 @@ public class Cinema {
     public static void main(String[] args) {
         // Write your code here
         Scanner scanner = new Scanner(System.in);
-        String [][] room = createRoom(enterSize());
+        RoomMaker roomMaker = new RoomMaker(enterSize());
+        String [][] room = roomMaker.createRoom();
         while (true) {
             System.out.println("1. Show the seats\n" +
                     "2. Buy a ticket\n" +
@@ -48,26 +49,6 @@ public class Cinema {
         System.out.println("Enter the number of seats in each row: ");
         int seats = scanner.nextInt();
         return new int[]{rows,seats};
-    }
-    public static String [][] createRoom(int... sizes) {
-        int rows = sizes[0];
-        int seats = sizes[1];
-        String [][] room = new String[++rows][++seats];
-        for (int i = 0; i < room.length; i++) {
-            for (int j = 0; j < room[i].length; j++) {
-                if (i == 0 && j == 0) {
-                    room[i][j] = "  ";
-                }
-                else if (i == 0) {
-                    room[i][j] = j + " ";
-                } else if (j == 0){
-                    room[i][j] = i + " ";
-                } else {
-                    room[i][j] = "S ";
-                }
-            }
-        }
-        return room;
     }
 
     public static String[][] buyTicket(String [][] room) {

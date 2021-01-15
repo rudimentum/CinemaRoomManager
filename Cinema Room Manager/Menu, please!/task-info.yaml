@@ -336,7 +336,7 @@ files:
         }
     }
   learner_created: false
-- name: src/cinema/Room.java
+- name: src/cinema/RoomMaker.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/133/stages/712/implement

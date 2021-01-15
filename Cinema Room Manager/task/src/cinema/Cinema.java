@@ -1,5 +1,6 @@
 package cinema;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cinema {
@@ -44,28 +45,40 @@ public class Cinema {
     }
     public static int[] enterSize() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number of rows: ");
-        int rows = scanner.nextInt();
-        System.out.println("Enter the number of seats in each row: ");
-        int seats = scanner.nextInt();
-        return new int[]{rows,seats};
+        try {
+            System.out.println("Enter the number of rows: ");
+            int rows = scanner.nextInt();
+            System.out.println("Enter the number of seats in each row: ");
+            int seats = scanner.nextInt();
+            return new int[]{rows,seats};
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Use integers!");
+            return enterSize();
+        }
     }
 
     public static String[][] buyTicket(String [][] room) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a row number: ");
-        int row = scanner.nextInt();
-        System.out.println("Enter a seat number in that row: ");
-        int seat = scanner.nextInt();
-        int rows = room.length - 1;
-        int seats = room[rows].length - 1;
-        if (room[row][seat].equals("B ")) {
-            System.out.println("This seat is occupied! Choose another one!");
-        } else {
-            room[row][seat] = "B ";
-            System.out.println("Ticket price: $" + calculateTicketPrice(rows, seats, row));
+        try {
+            System.out.println("Enter a row number: ");
+            int row = scanner.nextInt();
+            System.out.println("Enter a seat number in that row: ");
+            int seat = scanner.nextInt();
+            int rows = room.length - 1;
+            int seats = room[rows].length - 1;
+            if (row > rows || seat > seats) {
+                System.out.printf("No such seat. There are %d rows of %d seats.\n", rows, seats);
+            } else if ("B ".equals(room[row][seat])) {
+                System.out.println("This seat is occupied! Choose another one!");
+            } else {
+                room[row][seat] = "B ";
+                System.out.println("Ticket price: $" + calculateTicketPrice(rows, seats, row));
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Use integers!");
+        } finally {
+           return room;
         }
-        return room;
     }
 
     public static void printRoom(String [][] room) {

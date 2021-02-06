@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 
 public class RoomManager {
+    final static Scanner scanner = new Scanner(System.in);
+
     public static int calculateTicketPrice(int rows, int seats, int currentRow) {
         int total = rows * seats;
         int price;
@@ -18,7 +20,6 @@ public class RoomManager {
     }
 
     public static int[] enterSize() {
-        Scanner scanner = new Scanner(System.in);
         try {
             System.out.println("Enter the number of rows: ");
             int rows = scanner.nextInt();
@@ -26,13 +27,12 @@ public class RoomManager {
             int seats = scanner.nextInt();
             return new int[]{rows,seats};
         } catch (InputMismatchException e) {
-            System.out.println("Invalid input! Use integers!");
+            System.out.println("Wrong input! Use integers!");
             return enterSize();
         }
     }
 
     public static String[][] buyTicket(String [][] room) {
-        Scanner scanner = new Scanner(System.in);
         try {
             while (true) {
                 System.out.println("Enter a row number: ");
@@ -43,10 +43,10 @@ public class RoomManager {
                 int seats = room[rows].length - 1;
                 if (row > rows || seat > seats) {
                     System.out.printf("Wrong input!");
-                } else if ("B ".equals(room[row][seat])) {
+                } else if ("B".equals(room[row][seat])) {
                     System.out.println("That ticket has already been purchased!");
                 } else {
-                    room[row][seat] = "B ";
+                    room[row][seat] = "B";
                     System.out.println("Ticket price: $" + calculateTicketPrice(rows, seats, row));
                     break;
                 }
@@ -62,7 +62,7 @@ public class RoomManager {
         System.out.println("Cinema:");
         for (String[] row : room) {
             for (String seat : row) {
-                System.out.print(seat);
+                System.out.print(seat + " ");
             }
             System.out.println();
         }
@@ -83,7 +83,7 @@ public class RoomManager {
         } else {
             for (int i = 0; i < room.length; i++) {
                 for (int j = 0; j < room[i].length; j++) {
-                    if ("B ".equals(room[i][j])) {
+                    if ("B".equals(room[i][j])) {
                         income = i <= part ? income + 10 : income + 8;
                     }
                 }
@@ -96,7 +96,7 @@ public class RoomManager {
         int purchased = 0;
         for (int i = 0; i < room.length; i++) {
             for (int j = 0; j < room[i].length; j++) {
-                purchased = "B ".equals(room[i][j]) ? ++purchased : purchased;
+                purchased = "B".equals(room[i][j]) ? ++purchased : purchased;
             }
         }
         return purchased;

@@ -608,6 +608,9 @@ files:
         }
     }
   learner_created: false
+- name: src/cinema/RoomManager.java
+  visible: true
+  learner_created: true
 - name: src/cinema/RoomMaker.java
   visible: true
   text: |
@@ -641,9 +644,6 @@ files:
             return room;
         }
     }
-  learner_created: true
-- name: src/cinema/RoomManager.java
-  visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/133/stages/713/implement
 status: Solved

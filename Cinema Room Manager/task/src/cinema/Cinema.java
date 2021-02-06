@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Cinema {
 
     public static void main(String[] args) {
-        // Write your code here
         Scanner scanner = new Scanner(System.in);
-        RoomMaker roomMaker = new RoomMaker(RoomManager.enterSize());
-        String [][] room = roomMaker.createRoom();
+        RoomMaker roomMaker = new RoomMaker();
+        roomMaker.setSizes(RoomManager.enterSize());
+        String[][] room = roomMaker.getRoom();
         while (true) {
             System.out.println("1. Show the seats\n" +
                     "2. Buy a ticket\n" +
@@ -27,6 +27,8 @@ public class Cinema {
                     break;
                 case 0:
                     return;
+                default:
+                    System.out.println("Wrong input!");
             }
         }
     }

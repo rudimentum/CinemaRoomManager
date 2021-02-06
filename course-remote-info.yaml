@@ -51,10 +51,6 @@ topics:
   2:
   - title: Units of information
     theory_id: 6865
-  - title: Sizes and ranges
-    theory_id: 3532
-  - title: Type casting
-    theory_id: 3510
   - title: Increment and decrement
     theory_id: 5008
   - title: Characters
@@ -67,6 +63,10 @@ topics:
     theory_id: 3498
   - title: Branching statements
     theory_id: 3507
+  - title: Sizes and ranges
+    theory_id: 3532
+  - title: Type casting
+    theory_id: 3510
   - title: Calling a method
     theory_id: 10973
   - title: Primitive and reference types

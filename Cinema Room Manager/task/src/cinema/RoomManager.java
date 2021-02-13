@@ -7,19 +7,19 @@ import java.util.Scanner;
 public class RoomManager {
     final static Scanner scanner = new Scanner(System.in);
 
-    public static int calculateTicketPrice(int rows, int seats, int currentRow) {
+    public int calculateTicketPrice(int rows, int seats, int currentRow) {
         int total = rows * seats;
         int price;
         if (total <= 60) {
             price = 10;
         } else {
-            int part = Math.round(rows/2);
+            int part = Math.round(rows / 2);
             price = currentRow <= part ? 10 : 8;
         }
         return price;
     }
 
-    public static int[] enterSize() {
+    public int[] enterSize() {
         try {
             System.out.println("Enter the number of rows: ");
             int rows = scanner.nextInt();
@@ -32,7 +32,7 @@ public class RoomManager {
         }
     }
 
-    public static String[][] buyTicket(String [][] room) {
+    public void buyTicket(String [][] room) {
         try {
             while (true) {
                 System.out.println("Enter a row number: ");
@@ -42,7 +42,7 @@ public class RoomManager {
                 int rows = room.length - 1;
                 int seats = room[rows].length - 1;
                 if (row > rows || seat > seats) {
-                    System.out.printf("Wrong input!");
+                    System.out.println("Wrong input!");
                 } else if ("B".equals(room[row][seat])) {
                     System.out.println("That ticket has already been purchased!");
                 } else {
@@ -53,12 +53,10 @@ public class RoomManager {
             }
         } catch (InputMismatchException e) {
             System.out.println("Wrong input! Use integers!");
-        } finally {
-            return room;
         }
     }
 
-    public static void printRoom(String [][] room) {
+    public void printRoom(String [][] room) {
         System.out.println("Cinema:");
         for (String[] row : room) {
             for (String seat : row) {
@@ -68,7 +66,7 @@ public class RoomManager {
         }
     }
 
-    public static int calculateIncome(String[][] room, int amount) {
+    public int calculateIncome(String[][] room, int amount) {
         int rows = room.length - 1;
         int seats = room[rows].length - 1;
         int total = rows * seats;
@@ -92,17 +90,17 @@ public class RoomManager {
         return income;
     }
 
-    public static int getPurchased(String[][] room) {
+    public int getPurchased(String[][] room) {
         int purchased = 0;
-        for (int i = 0; i < room.length; i++) {
-            for (int j = 0; j < room[i].length; j++) {
-                purchased = "B".equals(room[i][j]) ? ++purchased : purchased;
+        for (String[] strings : room) {
+            for (String string : strings) {
+                purchased = "B".equals(string) ? ++purchased : purchased;
             }
         }
         return purchased;
     }
 
-    public static void printStatistics(String[][] room) {
+    public void printStatistics(String[][] room) {
         int rows = room.length - 1;
         int seats = room[rows].length - 1;
         int total = rows * seats;

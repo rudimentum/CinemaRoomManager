@@ -7,8 +7,9 @@ public class Cinema {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         RoomMaker roomMaker = new RoomMaker();
-        roomMaker.setSizes(RoomManager.enterSize());
-        String[][] room = roomMaker.getRoom();
+        RoomManager roomManager = new RoomManager();
+        roomMaker.setSizes(roomManager.enterSize());
+        String[][] room = roomMaker.createRoom();
         while (true) {
             System.out.println("1. Show the seats\n" +
                     "2. Buy a ticket\n" +
@@ -17,13 +18,13 @@ public class Cinema {
             int choice = scanner.nextByte();
             switch (choice) {
                 case 1:
-                    RoomManager.printRoom(room);
+                    roomManager.printRoom(room);
                     break;
                 case 2:
-                    RoomManager.buyTicket(room);
+                    roomManager.buyTicket(room);
                     break;
                 case 3:
-                    RoomManager.printStatistics(room);
+                    roomManager.printStatistics(room);
                     break;
                 case 0:
                     return;
